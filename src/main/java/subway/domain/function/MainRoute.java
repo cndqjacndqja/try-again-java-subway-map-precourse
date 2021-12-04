@@ -50,4 +50,12 @@ public enum MainRoute {
 	}
 
 	abstract void function();
+
+	public void applyFunction() {
+		this.function();
+	}
+
+	public boolean isSameQuit() {
+		return this.command.equals("Q");
+	}
 }
