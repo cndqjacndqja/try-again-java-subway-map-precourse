@@ -21,8 +21,19 @@ public class StationRepository {
         stations.add(station);
     }
 
-    public static boolean deleteStation(String name) {
-        return stations.removeIf(station -> Objects.equals(station.getName(), name));
+    public static void deleteStation(String name) {
+        Station station = new Station(name);
+        validateStationForDelete(station);
+        stations.remove(station);
+    }
+
+    private static void validateStationForDelete(Station station) {
+        for (Station stationInStations : stations) {
+            if (stationInStations.equals(station)) {
+                return;
+            }
+        }
+        throw new IllegalArgumentException(errorNotExistStations());
     }
 
     public static void validateStation(Station station) {
@@ -37,7 +48,7 @@ public class StationRepository {
 
         if(stationOptional.isPresent()) {
             throw new IllegalArgumentException(errorDuplicateStation());
-        };
+        }
     }
 
     private static void validateNameLength(Station station) {

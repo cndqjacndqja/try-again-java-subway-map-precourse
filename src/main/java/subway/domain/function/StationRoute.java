@@ -13,14 +13,24 @@ public enum StationRoute {
 	REGISTER_STATION("1") {
 		@Override
 		void function(Scanner sc) {
-			StationRepository.addStation(inputRegisterStation(sc));
-			printFinishRegisterStation();
+			try {
+				StationRepository.addStation(inputRegisterStation(sc));
+				printFinishRegisterStation();
+			} catch (IllegalArgumentException exception) {
+				System.out.println(exception.getMessage());
+				function(sc);
+			}
 		}
 	},
 	REMOVE_STATION("2") {
 		@Override
 		void function(Scanner sc) {
-
+			try {
+				StationRepository.deleteStation(inputDeleteStation(sc));
+			} catch (IllegalArgumentException exception) {
+				System.out.println(exception.getMessage());
+				function(sc);
+			}
 		}
 	},
 	FIND_STATION("3") {
@@ -36,6 +46,7 @@ public enum StationRoute {
 		}
 	};
 	private String command;
+
 	abstract void function(Scanner sc);
 
 	StationRoute(String command) {

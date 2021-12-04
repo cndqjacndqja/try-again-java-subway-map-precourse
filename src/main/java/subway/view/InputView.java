@@ -15,4 +15,8 @@ public class InputView {
 		return sc.nextLine();
 	}
 
+	public static String inputDeleteStation(Scanner sc) {
+		System.out.println(TITLE_DELETE_STATION);
+		return sc.nextLine();
+	}
 }

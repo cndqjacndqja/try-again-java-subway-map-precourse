@@ -17,5 +17,8 @@ public class Message {
 	public static String FINISH_REGISTER_STATION() {
 		return SUCCESS_MESSAGE + "지하철 역이 등록 되었습니다.";
 	}
+	public static String errorNotExistStations() {
+		return ERROR_MESSAGE + "입력한 역이 존재하지 않습니다.";
+	}
 
 }
