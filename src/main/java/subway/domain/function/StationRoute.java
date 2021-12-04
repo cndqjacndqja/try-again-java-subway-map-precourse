@@ -1,65 +1,55 @@
 package subway.domain.function;
 
 import static subway.util.Message.*;
+import static subway.view.InputView.*;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-import subway.controller.StationController;
-
-public enum MainRoute {
-	MANAGE_STATION("1") {
+public enum StationRoute {
+	REGISTER_STATION("1") {
 		@Override
 		void function(Scanner sc) {
-			StationController stationController = new StationController();
-			stationController.run(sc);
+			inputRegisterStation(sc);
 		}
 	},
-	MANAGE_LINE("2") {
+	REMOVE_STATION("2") {
 		@Override
 		void function(Scanner sc) {
 
 		}
 	},
-	MANAGE_SECTION("3") {
+	FIND_STATION("3") {
 		@Override
 		void function(Scanner sc) {
 
 		}
 	},
-	PRINT_SUBWAY_MAP("4") {
-		@Override
-		void function(Scanner sc) {
-
-		}
-	},
-	QUIT("Q") {
+	BACK("B") {
 		@Override
 		void function(Scanner sc) {
 
 		}
 	};
-
 	private String command;
+	abstract void function(Scanner sc);
 
-	MainRoute(String command) {
+	StationRoute(String command) {
 		this.command = command;
 	}
 
-	public static MainRoute findRoute(String command) {
+	public static StationRoute findRoute(String command) {
 		return Arrays.stream(values())
 			.filter(i -> i.command.equals(command))
 			.findFirst()
 			.orElseThrow(() -> new IllegalArgumentException(errorRouteCommand()));
 	}
 
-	abstract void function(Scanner sc);
-
 	public void applyFunction(Scanner sc) {
 		this.function(sc);
 	}
 
 	public boolean isSameQuit() {
-		return this.command.equals("Q");
+		return this.command.equals("B");
 	}
 }

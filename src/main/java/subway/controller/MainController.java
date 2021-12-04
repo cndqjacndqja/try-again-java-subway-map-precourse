@@ -10,11 +10,11 @@ import subway.domain.function.MainRoute;
 public class MainController {
 	public void run(Scanner sc) {
 		printMainScreen();
-		MainRoute mainRoute = MainRoute.findRoute(inputMainRouteCommand(sc));
+		MainRoute mainRoute = MainRoute.findRoute(inputFunctionCommand(sc));
 		if (mainRoute.isSameQuit()) {
 			return;
 		}
-		mainRoute.applyFunction();
+		mainRoute.applyFunction(sc);
 		run(sc);
 	}
 }
