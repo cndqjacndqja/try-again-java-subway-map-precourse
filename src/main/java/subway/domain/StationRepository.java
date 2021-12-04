@@ -5,7 +5,6 @@ import static subway.util.Message.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 public class StationRepository {
@@ -33,7 +32,7 @@ public class StationRepository {
                 return;
             }
         }
-        throw new IllegalArgumentException(errorNotExistStations());
+        throw new IllegalArgumentException(ERROR_MESSAGE_NOT_EXIST_STATION);
     }
 
     public static void validateStation(Station station) {
@@ -47,7 +46,7 @@ public class StationRepository {
             .findAny();
 
         if(stationOptional.isPresent()) {
-            throw new IllegalArgumentException(errorDuplicateStation());
+            throw new IllegalArgumentException(ERROR_DUPLICATE_STATION);
         }
     }
 

@@ -29,7 +29,7 @@ public class Station {
 
     public void validateNameLength() {
         if(this.name.length() < MIN_STATION_NAME_LENGTH) {
-            throw new IllegalArgumentException(errorStationNameLengthUnderMin());
+            throw new IllegalArgumentException(ERROR_STATION_NAME_LENGTH_UNDER_MIN);
         }
     }
 }

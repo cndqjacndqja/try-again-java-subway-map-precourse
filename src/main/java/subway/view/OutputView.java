@@ -29,6 +29,11 @@ public class OutputView {
 	}
 
 	public static void printFinishRegisterStation() {
-		System.out.println(FINISH_REGISTER_STATION());
+		System.out.println(MESSAGE_FINISH_REGISTER_STATION);
+	}
+
+	public static void printFinishDeleteStation() {
+		System.out.println(SUCCESS_DELETE_STATION);
+
 	}
 }

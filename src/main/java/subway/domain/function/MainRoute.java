@@ -50,7 +50,7 @@ public enum MainRoute {
 		return Arrays.stream(values())
 			.filter(i -> i.command.equals(command))
 			.findFirst()
-			.orElseThrow(() -> new IllegalArgumentException(errorRouteCommand()));
+			.orElseThrow(() -> new IllegalArgumentException(ERROR_ROUTE_COMMAND));
 	}
 
 	abstract void function(Scanner sc);

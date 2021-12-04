@@ -27,6 +27,7 @@ public enum StationRoute {
 		void function(Scanner sc) {
 			try {
 				StationRepository.deleteStation(inputDeleteStation(sc));
+				printFinishDeleteStation();
 			} catch (IllegalArgumentException exception) {
 				System.out.println(exception.getMessage());
 				function(sc);
@@ -57,7 +58,7 @@ public enum StationRoute {
 		return Arrays.stream(values())
 			.filter(i -> i.command.equals(command))
 			.findFirst()
-			.orElseThrow(() -> new IllegalArgumentException(errorRouteCommand()));
+			.orElseThrow(() -> new IllegalArgumentException(ERROR_ROUTE_COMMAND));
 	}
 
 	public void applyFunction(Scanner sc) {
