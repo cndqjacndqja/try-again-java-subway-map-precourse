@@ -11,6 +11,7 @@ public enum StationRoute {
 		@Override
 		void function(Scanner sc) {
 			inputRegisterStation(sc);
+
 		}
 	},
 	REMOVE_STATION("2") {

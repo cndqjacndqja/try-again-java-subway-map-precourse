@@ -1,9 +1,12 @@
 package subway.domain;
 
+import static subway.util.Message.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class StationRepository {
     private static final List<Station> stations = new ArrayList<>();
@@ -18,5 +21,19 @@ public class StationRepository {
 
     public static boolean deleteStation(String name) {
         return stations.removeIf(station -> Objects.equals(station.getName(), name));
+    }
+
+    public static void validateStation(Station station) {
+        validateDuplicate(station);
+    }
+
+    private static void validateDuplicate(Station station) {
+        Optional<Station> stationOptional = stations.stream()
+            .filter(i -> i.equals(station))
+            .findAny();
+
+        if(stationOptional.isPresent()) {
+            throw new IllegalArgumentException(errorDuplicateStation());
+        };
     }
 }
