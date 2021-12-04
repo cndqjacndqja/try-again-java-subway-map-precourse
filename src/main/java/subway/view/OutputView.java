@@ -1,6 +1,7 @@
 package subway.view;
 
 import static subway.util.Constant.*;
+import static subway.util.Message.*;
 
 public class OutputView {
 
@@ -25,5 +26,9 @@ public class OutputView {
 
 	public static void printEmptyLine() {
 		System.out.println();
+	}
+
+	public static void printFinishRegisterStation() {
+		System.out.println(FINISH_REGISTER_STATION());
 	}
 }

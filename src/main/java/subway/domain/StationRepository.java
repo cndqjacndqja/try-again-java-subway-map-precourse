@@ -15,7 +15,9 @@ public class StationRepository {
         return Collections.unmodifiableList(stations);
     }
 
-    public static void addStation(Station station) {
+    public static void addStation(String name) {
+        Station station = new Station(name);
+        validateStation(station);
         stations.add(station);
     }
 

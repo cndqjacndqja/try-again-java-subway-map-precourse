@@ -2,16 +2,19 @@ package subway.domain.function;
 
 import static subway.util.Message.*;
 import static subway.view.InputView.*;
+import static subway.view.OutputView.*;
 
 import java.util.Arrays;
 import java.util.Scanner;
+
+import subway.domain.StationRepository;
 
 public enum StationRoute {
 	REGISTER_STATION("1") {
 		@Override
 		void function(Scanner sc) {
-			inputRegisterStation(sc);
-
+			StationRepository.addStation(inputRegisterStation(sc));
+			printFinishRegisterStation();
 		}
 	},
 	REMOVE_STATION("2") {
