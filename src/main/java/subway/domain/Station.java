@@ -32,4 +32,9 @@ public class Station {
             throw new IllegalArgumentException(ERROR_STATION_NAME_LENGTH_UNDER_MIN);
         }
     }
+
+    @Override
+    public String toString() {
+        return INFO_MESSAGE + name;
+    }
 }

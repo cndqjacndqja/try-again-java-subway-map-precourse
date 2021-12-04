@@ -3,6 +3,8 @@ package subway.view;
 import static subway.util.Constant.*;
 import static subway.util.Message.*;
 
+import java.util.List;
+
 public class OutputView {
 
 	public static void printMainScreen() {
@@ -34,6 +36,12 @@ public class OutputView {
 
 	public static void printFinishDeleteStation() {
 		System.out.println(SUCCESS_DELETE_STATION);
+	}
 
+	public static void printStationNames(List<String> stationNames) {
+		System.out.println(TITLE_PRINT_STATION_ALL);
+		for (String stationName : stationNames) {
+			System.out.println(stationName);
+		}
 	}
 }

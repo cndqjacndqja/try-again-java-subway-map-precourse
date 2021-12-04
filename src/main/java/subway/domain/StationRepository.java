@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class StationRepository {
     private static final List<Station> stations = new ArrayList<>();
@@ -52,5 +53,11 @@ public class StationRepository {
 
     private static void validateNameLength(Station station) {
         station.validateNameLength();
+    }
+
+    public static List<String> getStationNames() {
+        return stations.stream()
+            .map(Station::toString)
+            .collect(Collectors.toList());
     }
 }

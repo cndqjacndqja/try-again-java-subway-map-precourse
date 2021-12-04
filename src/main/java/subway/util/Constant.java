@@ -18,7 +18,5 @@ public class Constant {
 	public static final String TITLE_DELETE_STATION = "## 삭제할 역 이름을 입력하세요.";
 
 	public static final int MIN_STATION_NAME_LENGTH = 2;
-
-
-
+	public static final String TITLE_PRINT_STATION_ALL = "## 역 목록";
 }

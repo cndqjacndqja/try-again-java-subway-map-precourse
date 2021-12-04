@@ -37,7 +37,7 @@ public enum StationRoute {
 	FIND_STATION("3") {
 		@Override
 		void function(Scanner sc) {
-
+			printStationNames(StationRepository.getStationNames());
 		}
 	},
 	BACK("B") {
