@@ -19,7 +19,7 @@ public class OutputView {
 
 	public static void printManageStationScreen() {
 		System.out.println(TITLE_MANAGE_STATION_SCREEN);
-		System.out.println(TITLE_MANAGE_STATION);
+		System.out.println(TITLE_REGISTER_STATION);
 		System.out.println(TITLE_STATION_STATION_REMOVE);
 		System.out.println(TITLE_FIND_STATION);
 		System.out.println(TITLE_BACK);
@@ -32,10 +32,12 @@ public class OutputView {
 
 	public static void printFinishRegisterStation() {
 		System.out.println(MESSAGE_FINISH_REGISTER_STATION);
+		printEmptyLine();
 	}
 
 	public static void printFinishDeleteStation() {
 		System.out.println(SUCCESS_DELETE_STATION);
+		printEmptyLine();
 	}
 
 	public static void printStationNames(List<String> stationNames) {
@@ -43,5 +45,6 @@ public class OutputView {
 		for (String stationName : stationNames) {
 			System.out.println(stationName);
 		}
+		printEmptyLine();
 	}
 }

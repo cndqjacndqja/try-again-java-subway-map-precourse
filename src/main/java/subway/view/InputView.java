@@ -11,7 +11,7 @@ public class InputView {
 	}
 
 	public static String inputRegisterStation(Scanner sc) {
-		System.out.println(TITLE_REGISTER_STATION);
+		System.out.println(INPUT_REGISTER_STATION);
 		return sc.nextLine();
 	}
 
