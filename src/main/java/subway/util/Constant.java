@@ -15,7 +15,7 @@ public class Constant {
 	public static final String TITLE_BACK = "B. 돌아가기";
 	public static final String TITLE_REGISTER_STATION = "## 등록할 역 이름을 입력하세요.";
 
-
+	public static final int MIN_STATION_NAME_LENGTH = 2;
 
 
 }

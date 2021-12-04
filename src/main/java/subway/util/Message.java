@@ -9,4 +9,7 @@ public class Message {
 	public static String errorDuplicateStation() {
 		return ERROR_MESSAGE + "중복된 역이 있습니다.";
 	}
+	public static String errorStationNameLengthUnderMin() {
+		return ERROR_MESSAGE + "최소 2글자 이상이여야 합니다.";
+	}
 }

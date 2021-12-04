@@ -1,5 +1,8 @@
 package subway.domain;
 
+import static subway.util.Constant.*;
+import static subway.util.Message.*;
+
 public class Station {
     private String name;
 
@@ -22,5 +25,11 @@ public class Station {
     @Override
     public int hashCode() {
         return name.hashCode();
+    }
+
+    public void validateNameLength() {
+        if(this.name.length() < MIN_STATION_NAME_LENGTH) {
+            throw new IllegalArgumentException(errorStationNameLengthUnderMin());
+        }
     }
 }

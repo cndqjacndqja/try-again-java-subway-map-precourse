@@ -25,6 +25,7 @@ public class StationRepository {
 
     public static void validateStation(Station station) {
         validateDuplicate(station);
+        validateNameLength(station);
     }
 
     private static void validateDuplicate(Station station) {
@@ -35,5 +36,9 @@ public class StationRepository {
         if(stationOptional.isPresent()) {
             throw new IllegalArgumentException(errorDuplicateStation());
         };
+    }
+
+    private static void validateNameLength(Station station) {
+        station.validateNameLength();
     }
 }
