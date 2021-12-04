@@ -4,11 +4,14 @@ import static subway.util.Message.*;
 
 import java.util.Arrays;
 
+import subway.controller.StationController;
+
 public enum MainRoute {
 	MANAGE_STATION("1") {
 		@Override
 		void function() {
-
+			StationController stationController = new StationController();
+			stationController.run();
 		}
 	},
 	MANAGE_LINE("2") {
