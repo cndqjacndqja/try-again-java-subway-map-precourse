@@ -24,5 +24,14 @@ public class Line {
         stationList.remove(station);
     }
 
-    // 추가 기능 구현
+    public boolean isRegisterStation(Station station) {
+        for (Station stationInLine: stationList) {
+            if (stationInLine.equals(station)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+	// 추가 기능 구현
 }

@@ -50,4 +50,13 @@ public class LineRepository {
 			throw new IllegalArgumentException("존재하지 않는 노선입니다.");
 		}
 	}
+
+	public static boolean isRegisterStation(Station station) {
+		for (Line line : lines) {
+			if (line.isRegisterStation(station)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

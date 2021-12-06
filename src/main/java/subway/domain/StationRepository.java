@@ -39,6 +39,13 @@ public class StationRepository {
     public static void validateStation(Station station) {
         validateDuplicate(station);
         validateNameLength(station);
+        validateIsRegisterLine(station);
+    }
+
+    private static void validateIsRegisterLine(Station station) {
+        if(LineRepository.isRegisterStation(station)) {
+            throw new IllegalArgumentException(ERROR_MESSAGE + "노선에 등록된 역은 삭제할 수 없습니다.");
+        }
     }
 
     private static void validateDuplicate(Station station) {
