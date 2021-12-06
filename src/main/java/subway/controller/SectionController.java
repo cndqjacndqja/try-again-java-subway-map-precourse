@@ -6,7 +6,6 @@ import static subway.view.OutputView.*;
 import java.util.Scanner;
 
 import subway.domain.function.SectionRoute;
-import subway.domain.function.StationRoute;
 
 public class SectionController {
 
@@ -17,6 +16,5 @@ public class SectionController {
 			return;
 		}
 		sectionRoute.applyFunction(sc);
-		run(sc);
 	}
 }

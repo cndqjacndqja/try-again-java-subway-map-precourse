@@ -15,6 +15,5 @@ public class StationController {
 			return;
 		}
 		stationRoute.applyFunction(sc);
-		run(sc);
 	}
 }

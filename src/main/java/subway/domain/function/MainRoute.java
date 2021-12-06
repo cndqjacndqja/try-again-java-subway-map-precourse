@@ -5,6 +5,8 @@ import static subway.view.OutputView.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import subway.controller.LineController;
+import subway.controller.SectionController;
 import subway.controller.StationController;
 
 public enum MainRoute {
@@ -18,13 +20,15 @@ public enum MainRoute {
 	MANAGE_LINE("2") {
 		@Override
 		void function(Scanner sc) {
-
+			LineController lineController = new LineController();
+			lineController.run(sc);
 		}
 	},
 	MANAGE_SECTION("3") {
 		@Override
 		void function(Scanner sc) {
-
+			SectionController sectionController = new SectionController();
+			sectionController.run(sc);
 		}
 	},
 	PRINT_SUBWAY_MAP("4") {
