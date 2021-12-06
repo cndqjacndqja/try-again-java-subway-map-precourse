@@ -1,5 +1,7 @@
 package subway.domain;
 
+import static subway.view.OutputView.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,6 +16,7 @@ public class LineRepository {
 	}
 
 	public static void addLine(Line line) {
+		validateAddLine(line);
 		lines.add(line);
 	}
 
@@ -42,7 +45,11 @@ public class LineRepository {
 	}
 
 	private static void validateAddLine(Line line) {
-
+		for (Line lineInLineList : lines) {
+			if (Objects.equals(lineInLineList.getName(), line.getName())) {
+				throw new IllegalArgumentException(ERROR_MESSAGE + "중복된 노선이 있습니다.");
+			}
+		}
 	}
 
 	public static void deleteLineByName(String name) {

@@ -13,19 +13,29 @@ public enum LineRoute {
 	REGISTER_LINE("1") {
 		@Override
 		void function(Scanner sc) {
-			String lineName = inputRegisterLine(sc);
-			String startStation = inputStartStationsForRegisterLine(sc);
-			String endStation = inputEndStationsForRegisterLine(sc);
-			LineRepository.addLine(new Line(lineName, startStation, endStation));
-			printFinishRegisterLine();
+			try {
+				String lineName = inputRegisterLine(sc);
+				String startStation = inputStartStationsForRegisterLine(sc);
+				String endStation = inputEndStationsForRegisterLine(sc);
+				LineRepository.addLine(new Line(lineName, startStation, endStation));
+				printFinishRegisterLine();
+			} catch (IllegalArgumentException illegalArgumentException) {
+				System.out.println(illegalArgumentException.getMessage());
+				function(sc);
+			}
 		}
 	},
 	DELETE_LINE("2") {
 		@Override
 		void function(Scanner sc) {
-			String lineNameForDelete = inputDeleteLine(sc);
-			LineRepository.deleteLineByName(lineNameForDelete);
-			printFinishDeleteLine();
+			try {
+				String lineNameForDelete = inputDeleteLine(sc);
+				LineRepository.deleteLineByName(lineNameForDelete);
+				printFinishDeleteLine();
+			} catch (IllegalArgumentException illegalArgumentException) {
+				System.out.println(illegalArgumentException.getMessage());
+				function(sc);
+			}
 		}
 	},
 	FIND_LINE("3") {
@@ -42,6 +52,7 @@ public enum LineRoute {
 	};
 
 	private String command;
+
 	abstract void function(Scanner sc);
 
 	LineRoute(String command) {
