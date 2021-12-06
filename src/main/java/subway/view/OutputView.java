@@ -1,6 +1,5 @@
 package subway.view;
 
-
 import java.util.List;
 
 public class OutputView {
@@ -29,7 +28,6 @@ public class OutputView {
 	public static void printEmptyLine() {
 		System.out.println();
 	}
-
 
 	public static void printFinishRegisterStation() {
 		System.out.println(INFO_MESSAGE + "지하철 역이 등록 되었습니다.");
@@ -63,7 +61,7 @@ public class OutputView {
 	}
 
 	public static void printAllLineNames(List<String> lineNames) {
-		for (String lineName: lineNames) {
+		for (String lineName : lineNames) {
 			System.out.println(INFO_MESSAGE + lineName);
 		}
 	}
@@ -73,6 +71,16 @@ public class OutputView {
 		System.out.println("1. 구간 등록");
 		System.out.println("2. 구간 삭제");
 		System.out.println("B. 돌아가기");
+		printEmptyLine();
+	}
+
+	public static void printFinishRegisterSection() {
+		System.out.println(INFO_MESSAGE + "구간이 등록되었습니다.");
+		printEmptyLine();
+	}
+
+	public static void printFinishDeleteSection() {
+		System.out.println(INFO_MESSAGE + "구간이 삭제되었습니다.");
 		printEmptyLine();
 	}
 }

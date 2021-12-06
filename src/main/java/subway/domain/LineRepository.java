@@ -33,6 +33,15 @@ public class LineRepository {
         line.addSection(new Station(stationName), numberOfOrder);
     }
 
+    public static void deleteSection(String lineName, String station) {
+        Line line = lines().stream()
+            .filter(lineElement -> lineElement.getName().equals(lineName))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("노선이 존재하지 않습니다."));
+
+        line.deleteSection(new Station(station));
+    }
+
     private static void validateAddLine(Line line) {
 
     }

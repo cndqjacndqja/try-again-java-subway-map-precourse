@@ -65,4 +65,16 @@ public class InputView {
 		printEmptyLine();
 		return Integer.parseInt(scanner.nextLine());
 	}
+
+	public static String inputLineNameForDeleteSection(Scanner scanner) {
+		System.out.println("## 삭제할 구간의 노선을 입력하세요.");
+		printEmptyLine();
+		return scanner.nextLine();
+	}
+
+	public static String inputStationNameForDeleteSection(Scanner scanner) {
+		System.out.println("## 삭제할 구간의 역을 입력하세요.");
+		printManageSectionScreen();
+		return scanner.nextLine();
+	}
 }

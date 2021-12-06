@@ -20,5 +20,9 @@ public class Line {
         stationList.add(numberOfOrder, station);
     }
 
+    public void deleteSection(Station station) {
+        stationList.remove(station);
+    }
+
     // 추가 기능 구현
 }
