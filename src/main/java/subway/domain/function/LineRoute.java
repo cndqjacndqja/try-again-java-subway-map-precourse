@@ -17,6 +17,9 @@ public enum LineRoute {
 				String lineName = inputRegisterLine(sc);
 				String startStation = inputStartStationsForRegisterLine(sc);
 				String endStation = inputEndStationsForRegisterLine(sc);
+				if (startStation.equals(endStation)) {
+					throw new IllegalArgumentException(ERROR_MESSAGE + "상행 종점역과 하행 종점역이 같습니다.");
+				}
 				LineRepository.addLine(new Line(lineName, startStation, endStation));
 				printFinishRegisterLine();
 			} catch (IllegalArgumentException illegalArgumentException) {
