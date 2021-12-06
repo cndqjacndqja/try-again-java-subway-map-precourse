@@ -1,10 +1,11 @@
 package subway.domain;
 
-import static subway.util.Constant.*;
-import static subway.util.Message.*;
+import static subway.view.OutputView.*;
 
 public class Station {
     private String name;
+    public static final int MIN_STATION_NAME_LENGTH = 2;
+
 
     public Station(String name) {
         this.name = name;
@@ -29,7 +30,7 @@ public class Station {
 
     public void validateNameLength() {
         if(this.name.length() < MIN_STATION_NAME_LENGTH) {
-            throw new IllegalArgumentException(ERROR_STATION_NAME_LENGTH_UNDER_MIN);
+            throw new IllegalArgumentException(ERROR_MESSAGE + "최소 2글자 이상이여야 합니다.");
         }
     }
 

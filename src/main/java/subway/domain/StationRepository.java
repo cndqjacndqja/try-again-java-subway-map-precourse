@@ -1,6 +1,6 @@
 package subway.domain;
 
-import static subway.util.Message.*;
+import static subway.view.OutputView.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +33,7 @@ public class StationRepository {
                 return;
             }
         }
-        throw new IllegalArgumentException(ERROR_MESSAGE_NOT_EXIST_STATION);
+        throw new IllegalArgumentException(ERROR_MESSAGE + "입력한 역이 존재하지 않습니다.");
     }
 
     public static void validateStation(Station station) {
@@ -47,7 +47,7 @@ public class StationRepository {
             .findAny();
 
         if(stationOptional.isPresent()) {
-            throw new IllegalArgumentException(ERROR_DUPLICATE_STATION);
+            throw new IllegalArgumentException(ERROR_MESSAGE + "중복된 역이 있습니다.");
         }
     }
 

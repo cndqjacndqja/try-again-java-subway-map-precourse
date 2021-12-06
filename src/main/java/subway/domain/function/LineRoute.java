@@ -6,37 +6,32 @@ import static subway.view.OutputView.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import subway.domain.StationRepository;
+import subway.domain.Line;
+import subway.domain.LineRepository;
 
-public enum StationRoute {
-	REGISTER_STATION("1") {
+public enum LineRoute {
+	REGISTER_LINE("1") {
 		@Override
 		void function(Scanner sc) {
-			try {
-				StationRepository.addStation(inputRegisterStation(sc));
-				printFinishRegisterStation();
-			} catch (IllegalArgumentException exception) {
-				System.out.println(exception.getMessage());
-				function(sc);
-			}
+			String lineName = inputRegisterLine(sc);
+			String startStation = inputStartStationsForRegisterLine(sc);
+			String endStation = inputEndStationsForRegisterLine(sc);
+			LineRepository.addLine(new Line(lineName, startStation, endStation));
+			printFinishRegisterLine();
 		}
 	},
-	DELETE_STATION("2") {
+	DELETE_LINE("2") {
 		@Override
 		void function(Scanner sc) {
-			try {
-				StationRepository.deleteStation(inputDeleteStation(sc));
-				printFinishDeleteStation();
-			} catch (IllegalArgumentException exception) {
-				System.out.println(exception.getMessage());
-				function(sc);
-			}
+			String lineNameForDelete = inputDeleteLine(sc);
+			LineRepository.deleteLineByName(lineNameForDelete);
+			printFinishDeleteLine();
 		}
 	},
-	FIND_STATION("3") {
+	FIND_LINE("3") {
 		@Override
 		void function(Scanner sc) {
-			printStationNames(StationRepository.getStationNames());
+			printAllLineNames(LineRepository.getAllLineNames());
 		}
 	},
 	BACK("B") {
@@ -45,15 +40,15 @@ public enum StationRoute {
 
 		}
 	};
-	private String command;
 
+	private String command;
 	abstract void function(Scanner sc);
 
-	StationRoute(String command) {
+	LineRoute(String command) {
 		this.command = command;
 	}
 
-	public static StationRoute findRoute(String command) {
+	public static LineRoute findRoute(String command) {
 		return Arrays.stream(values())
 			.filter(i -> i.command.equals(command))
 			.findFirst()

@@ -1,6 +1,6 @@
 package subway.domain.function;
 
-import static subway.util.Message.*;
+import static subway.view.OutputView.*;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -50,7 +50,7 @@ public enum MainRoute {
 		return Arrays.stream(values())
 			.filter(i -> i.command.equals(command))
 			.findFirst()
-			.orElseThrow(() -> new IllegalArgumentException(ERROR_ROUTE_COMMAND));
+			.orElseThrow(() -> new IllegalArgumentException(ERROR_MESSAGE + "올바르지 않은 명령어 입니다."));
 	}
 
 	abstract void function(Scanner sc);
