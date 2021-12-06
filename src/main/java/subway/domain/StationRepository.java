@@ -42,6 +42,13 @@ public class StationRepository {
         validateIsRegisterLine(station);
     }
 
+    public static Station getStation(Station station) {
+        return stations().stream()
+            .filter(stationInStream -> stationInStream.equals(station))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 역입니다."));
+    }
+
     private static void validateIsRegisterLine(Station station) {
         if(LineRepository.isRegisterStation(station)) {
             throw new IllegalArgumentException(ERROR_MESSAGE + "노선에 등록된 역은 삭제할 수 없습니다.");

@@ -17,7 +17,8 @@ public class Line {
     }
 
     public void addSection(Station station, int numberOfOrder) {
-        stationList.add(numberOfOrder, station);
+        Station getStation = StationRepository.getStation(station);
+        stationList.add(numberOfOrder, getStation);
     }
 
     public void deleteSection(Station station) {
