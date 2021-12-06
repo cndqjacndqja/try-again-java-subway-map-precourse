@@ -67,4 +67,12 @@ public class OutputView {
 			System.out.println(INFO_MESSAGE + lineName);
 		}
 	}
+
+	public static void printManageSectionScreen() {
+		System.out.println("## 구간 관리 화면");
+		System.out.println("1. 구간 등록");
+		System.out.println("2. 구간 삭제");
+		System.out.println("B. 돌아가기");
+		printEmptyLine();
+	}
 }

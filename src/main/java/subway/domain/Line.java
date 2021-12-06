@@ -16,5 +16,9 @@ public class Line {
         return name;
     }
 
+    public void addSection(Station station, int numberOfOrder) {
+        stationList.add(numberOfOrder, station);
+    }
+
     // 추가 기능 구현
 }

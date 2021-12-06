@@ -23,6 +23,16 @@ public class LineRepository {
             .collect(Collectors.toList());
     }
 
+    public static void registerSection(String lineName, String stationName, int numberOfOrder) {
+        Line line = lines().stream()
+            .filter(i -> i.getName().equals(lineName))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("노선이 존재하지 않습니다."));
+
+
+        line.addSection(new Station(stationName), numberOfOrder);
+    }
+
     private static void validateAddLine(Line line) {
 
     }

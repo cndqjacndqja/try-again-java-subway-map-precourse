@@ -1,5 +1,7 @@
 package subway.view;
 
+import static subway.view.OutputView.*;
+
 import java.util.Scanner;
 
 public class InputView {
@@ -44,5 +46,23 @@ public class InputView {
 	public static String inputDeleteLine(Scanner scanner) {
 		System.out.println("## 삭제할 노선 이름을 입력하세요.");
 		return scanner.nextLine();
+	}
+
+	public static String inputLinenNameForRegisterSection(Scanner scanner) {
+		System.out.println("## 노선을 입력하세요.");
+		printEmptyLine();
+		return scanner.nextLine();
+	}
+
+	public static String inputStationNameForRegisterSection(Scanner scanner) {
+		System.out.println("## 역이름을 입력하세요.");
+		printEmptyLine();
+		return scanner.nextLine();
+	}
+
+	public static int inputNumberForRegisterSection(Scanner scanner) {
+		System.out.println("## 순서를 입력하세요.");
+		printEmptyLine();
+		return Integer.parseInt(scanner.nextLine());
 	}
 }
